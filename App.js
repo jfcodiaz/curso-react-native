@@ -1,5 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import Inicio from './Inicio'
+import Body from './Body'
+import Final from './Final'
 
 export default class App extends React.Component {
   constructor() {
@@ -8,12 +11,12 @@ export default class App extends React.Component {
       numero: 2
     }
   }
-  aumentar() {
+  aumentar = () => {
     this.setState({
       numero: this.state.numero+1
     })
   }
-  disminuir () {
+  disminuir = () => {
     this.setState({
       numero: this.state.numero-1
     })
@@ -21,23 +24,9 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.cajaUno}>
-          <Text>Contador</Text>
-        </View>
-        <View style={styles.cajaDos}>
-          <Text>{this.state.numero}</Text>
-        </View>
-        <View style={styles.cajaTres}>
-          <Button title="Aumentar"
-            onPress={()=> {
-              this.aumentar()
-            }}
-          />
-          <Button title="Disminuir"
-            onPress={()=>{
-              this.disminuir()
-            }}/>
-        </View>
+        <Inicio name="Calculadora"/>
+        <Body numero={this.state.numero}/>
+        <Final sumar={this.aumentar} disminuir={this.disminuir}/>
       </View>
     );
   }
@@ -47,18 +36,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  cajaUno: {
-    flex: 1,
-    backgroundColor: '#00ff00',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  cajaDos: {
-    flex: 3,
-    backgroundColor: '#90EE90',
-    justifyContent: 'center',
-    alignItems: 'center'
   },
   cajaTres: {
     flex: 1,

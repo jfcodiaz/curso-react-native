@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class Inicio extends Component {
+export default class Body extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this.props.name}</Text>
+        <Text>{this.props.numero}</Text>
       </View>
     );
   }
@@ -13,8 +13,8 @@ export default class Inicio extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#00ff00',
+    flex: 3,
+    backgroundColor: '#90EE90',
     alignItems: 'center',
     justifyContent: 'center',
   },
