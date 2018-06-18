@@ -9,7 +9,6 @@ export default class Header extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Header</Text>
         <TextInput
           style={styles.texto}
           placeholder="Aquí escribe tu text..."
