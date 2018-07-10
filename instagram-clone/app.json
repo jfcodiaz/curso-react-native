@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "instragram-clone",
+    "name": "instagram-clone",
     "description": "This project is really great.",
-    "slug": "instragram-clone",
+    "slug": "instagram-clone",
     "privacy": "public",
     "sdkVersion": "28.0.0",
     "platforms": ["ios", "android"],
