@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Redux</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.min.js"></script>
+</head>
+<body>
+  <div>
+    <h4>Redux</h4>
+  </div>
+  <div>
+    <p>El número es: <b><span id="numero"></span></b></p>
+    <br>
+    <button onclick="aumentar()">Aumentar</button>
+    <button onclick="disminuir()">Disminuir</button>
+  </div>
+  <script type="text/javascript">
+    let state = {
+      numero : 0
+    };
+    var store = Redux.createStore(reducer, state);
+    var aumentar = function () {
+        store.dispatch(actionAumentar)
+    }
+
+    var disminuir = function() {
+        store.dispatch(actionDisminuir);
+    }
+    function reducer(state, action){
+      console.log("call reducer with ", action, state)
+      let newState = Object.assign({}, state);
+      switch(action.type){
+        case 'AUM':
+          newState.numero = state.numero + 1;
+          console.log(newState);
+          return newState;
+        case 'DIS':
+          newState.numero = state.numero - 1;
+          console.log(newState);
+          return newState;
+        default:
+          return state;
+      }
+    }
+
+    let actionAumentar = {
+      type: 'AUM'
+    };
+    let actionDisminuir = {
+      type : 'DIS'
+    }
+    let updateNumber = function() {
+      var numero = document.getElementById('numero');
+      numero.innerHTML= store.getState().numero;
+    }
+    updateNumber();
+    store.subscribe(updateNumber);
+    
+  </script>
+</body>
+</html>
