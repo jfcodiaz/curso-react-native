@@ -1,5 +1,6 @@
 import { takeEvery, call } from 'redux-saga/effects';
 import { autenticacion, baseDeDatos } from '../Servicios/Firebase';
+import CONSTANTES from '../CONSTANTES';
 
 const registroEnFirebase = values => autenticacion
   .createUserWithEmailAndPassword(values.correo, values.password)
@@ -34,6 +35,6 @@ function* sagaLogin(values) {
 }
 
 export default function* functionPrimaria() {
-  yield takeEvery('REGISTRO', sagaRegistro);
-  yield takeEvery('LOGIN', sagaLogin);
+  yield takeEvery(CONSTANTES.REGISTRO, sagaRegistro);
+  yield takeEvery(CONSTANTES.LOGIN, sagaLogin);
 }

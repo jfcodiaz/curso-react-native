@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import Store from './Store/Store';
 import { RutasNoAutenticadas } from './Componentes/NoAutenticados/RutasNoAutenticadas';
 import { RutasAutenticadas } from './Componentes/Autenticados/RutasAutenticadas';
+import Seleccion from './Seleccion';
 
 export default class App extends React.Component {
   constructor() {
@@ -16,7 +17,7 @@ export default class App extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <Provider store={Store}>
-          <RutasNoAutenticadas />
+          <Seleccion />
         </Provider>
       </SafeAreaView>
     );
